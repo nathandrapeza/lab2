@@ -1,0 +1,19 @@
+Lab 2:
+
+- 6-7 different files to complete lab
+- a proxy has 2 sockets, 1 from your computer, 1 to internet
+- proxy acts as both internet and computer
+- Client <-> Proxy <-> Google
+
+- multiproxy client almost same as proxy client
+- pool is basically an object that contains a collection of processes
+- we're trying to have 10 different connections at the same time
+- will not work on normal proxy client and normal proxy server
+	- line 34 and line 35 of multi proxy cleint.py
+		- create 10 different connections, 10 different processes
+		- make 10, and have them all use this connect method
+		- this is only difference vs proxy client.py
+
+- same multiprocessor approach in MPS as multi echo server
+
+- include all files in question 6 link
