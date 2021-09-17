@@ -29,6 +29,9 @@ def main():
             
             #to echo: recieve data, wait a bit, then send it back
             full_data = conn.recv(BUFFER_SIZE)
+
+            # 5. Print out whatever is sent to your server program
+            print(f"Full_data: {full_data}")
             time.sleep(0.5)
             conn.sendall(full_data)
             conn.close() #make sure to close the connetion!
