@@ -5,11 +5,12 @@
 	- grab remote ip using get_remote_ip(host), where host = hostname
 	- connect to the remote ip using the socket connect method on the socket object (socket_name.connect())
 
-2. According to the documentation (from https://docs.python.org/3/library/socket.html), a server must perform sequences/functions socket(), bind(), listen(), and accept(), while a client 
+2. The role of a server socket is to bind to a host and port, allow is disallow connections (using listen() method), and accept a connection to send or recieve data. All a client socket has to do is connect and send/recieve data - it doesn't need to specify listening or allowance.
 
-3. When using the setsockopt method on our socket object, we use SO_REUSEADDR as a parameter to "immediately reuse previous sockets which were bound on the same address and remained in TIME_WAIT state" (https://docs.python.org/3/library/socket.html#socket.socket).
+3. When using the setsockopt method on our socket object, we use SO_REUSEADDR as a parameter to "immediately reuse previous sockets which were bound on the same address and remained in TIME_WAIT state" (https://docs.python.org/3/library/socket.html#socket.socket). In other words, the REUSEADDR parameter o the setsockopt method is how we instruct the OS to let us reuse the same bind port.
 
 4. We are given address information (aside from conn, which is a socket object) after using a socket to accept an incoming connection. This address is bound to the object attemtping to make a connection to the socket. For example, running the test echoing example on echo_server.py, it gave me the information ('127.0.0.1', 58393), where the first number is an address, and I'm not sure what the 2nd number is.
 
 5. "The return value is a bytes object representing the data received" (according to the documentation). The recv method on the connection (new socket) object pretty much just takes in the data that was sent to it as a bytes object.
 
+6. https://github.com/nathandrapeza/lab2
